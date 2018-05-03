@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:jp="http://schemas.android.com/apk/res-auto"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        app:navigationIcon="@mipmap/ic_room_black_36dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="28dp"
+            android:text="益务"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/main_toolbar_search"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_search_36pt_2x"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+    </android.support.v7.widget.Toolbar>
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/main_toolbar"
+        android:layout_above="@id/main_nav"
+        android:id="@+id/main_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+        android:id="@+id/main_nav"
+        app:menu="@menu/main_bottomnav"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+    </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
+</RelativeLayout>

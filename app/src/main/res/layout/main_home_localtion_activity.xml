@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/localtion_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.SearchView
+        android:id="@+id/localtion_searchview"
+        app:queryHint="请输入城市名称"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </android.support.v7.widget.SearchView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:background="@drawable/textview_shape"
+                android:text="定位城市"
+                android:textSize="25dp"
+                android:paddingLeft="10dp"
+                android:gravity="center|left"
+                android:layout_width="match_parent"
+                android:layout_height="55dp" />
+            <Button
+                android:id="@+id/localtion_city"
+                android:text="定位失败"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp" />
+            <TextView
+                android:background="@drawable/textview_shape"
+                android:text="热门城市"
+                android:paddingLeft="10dp"
+                android:textSize="25dp"
+                android:gravity="center|left"
+                android:layout_width="match_parent"
+                android:layout_height="55dp" />
+            <GridView
+                android:id="@+id/hot_city_gridlist"
+                android:numColumns="4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </GridView>
+        </LinearLayout>
+        <ListView
+            android:background="#fff"
+            android:visibility="invisible"
+            android:id="@+id/hint_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </FrameLayout>
+</LinearLayout>

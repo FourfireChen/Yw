@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="#ebebeb"
+                android:text="优秀活动"
+                android:textSize="20sp"
+                android:gravity="start|center"
+                android:paddingStart="15dp"
+                android:id="@+id/home_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/home_item_all"
+                android:text="查看全部"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+        <ListView
+            android:id="@+id/home_activitylist"
+            android:layout_width="match_parent"
+            android:layout_height="260dp">
+        </ListView>
+        <Button
+            android:id="@+id/other_activity"
+            android:text="换一批"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
