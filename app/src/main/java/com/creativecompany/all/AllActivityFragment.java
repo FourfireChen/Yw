@@ -3,6 +3,7 @@ package com.creativecompany.all;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +14,9 @@ import android.widget.Button;
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
 import com.creativecompany.all.allContract.IAllView;
+import com.creativecompany.data.bean.Activity;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +41,9 @@ public class AllActivityFragment extends BaseFragment implements IAllView {
     Unbinder unbinder;
     @BindView(R.id.all_act_drawer)
     DrawerLayout allActDrawer;
+    //临时数据，测试一下而已
+    private ArrayList<Activity> mActivities = new ArrayList<>();
+    private ActivitiesListAdapter mActivitiesListAdapter = new ActivitiesListAdapter();
 
     @Nullable
     @Override
@@ -44,6 +51,14 @@ public class AllActivityFragment extends BaseFragment implements IAllView {
         View view = inflater.inflate(R.layout.all_act_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        //临时数据，测试一下而已
+        mActivities.add(new Activity());
+        mActivities.add(new Activity());
+        mActivities.add(new Activity());
+        mActivitiesListAdapter.setActivities(mActivities);
+
+        allList.setAdapter(mActivitiesListAdapter);
+        allList.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 
