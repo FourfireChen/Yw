@@ -1,4 +1,4 @@
-package com.creativecompany.all;
+package com.creativecompany.all.activity;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.creativecompany.R;
 import com.creativecompany.data.bean.Activity;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

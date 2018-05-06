@@ -5,11 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.creativecompany.BaseActivity;
 import com.creativecompany.R;
-import com.creativecompany.all.allContract.IAllView;
+import com.creativecompany.all.activity.ActivityFragment;
+import com.creativecompany.all.sponor.SponorFragment;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
  * Github FourfireChen
  */
 
-public class AllActivity extends BaseActivity<AllPresenter> implements IAllView {
+public class AllActivity extends AppCompatActivity{
 
     @BindView(R.id.all_toolbar)
     Toolbar allToolbar;
@@ -42,8 +43,8 @@ public class AllActivity extends BaseActivity<AllPresenter> implements IAllView 
 
     private void init() {
         setSupportActionBar(allToolbar);
-        fragments.add(new AllActivityFragment());
-        fragments.add(new AllSponorFragment());
+        fragments.add(new ActivityFragment());
+        fragments.add(new SponorFragment());
         allViewpager.setAdapter(new AllPagerAdatper(getSupportFragmentManager(), fragments));
         allTab.setupWithViewPager(allViewpager);
     }

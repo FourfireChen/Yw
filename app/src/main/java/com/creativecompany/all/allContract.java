@@ -9,7 +9,7 @@ import com.creativecompany.IBaseView;
  * Github FourfireChen
  */
 
-public interface allContract {
+public interface AllContract {
     interface IAllPresenter extends IBasePresenter{
 
     }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="筛选"
+            android:textSize="25dp"
+            android:gravity="center|start"
+            android:background="@drawable/textview_shape"
+            android:paddingLeft="10dp"
+            android:id="@+id/drawer_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+        <Button
+            android:id="@+id/close_drawer"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/ic_backspace_black_36dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:id="@+id/drawer_time"
+            android:text="时间"
+            android:textSize="20dp"
+            android:layout_below="@id/drawer_title"
+            android:gravity="center|start"
+            android:background="@drawable/textview_shape"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/drawer_time_selector"
+            android:layout_below="@id/drawer_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:id="@+id/drawer_long"
+            android:text="工时"
+            android:textSize="20dp"
+            android:layout_below="@id/drawer_time_selector"
+            android:gravity="center|start"
+            android:background="@drawable/textview_shape"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/drawer_work_time_selector"
+            android:layout_below="@id/drawer_long"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:id="@+id/drawer_status"
+            android:text="状态"
+            android:textSize="20dp"
+            android:layout_below="@id/drawer_work_time_selector"
+            android:background="@drawable/textview_shape"
+            android:gravity="center|start"
+            android:paddingLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/drawer_status_selector"
+            android:layout_below="@id/drawer_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_below="@id/drawer_status_selector"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <Button
+                android:id="@+id/drawer_cancel"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/drawer_confirm"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

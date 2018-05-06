@@ -1,4 +1,4 @@
-package com.creativecompany.all;
+package com.creativecompany.all.sponor;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,7 +15,7 @@ import com.creativecompany.R;
  * Github FourfireChen
  */
 
-public class AllSponorFragment extends Fragment {
+public class SponorFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -1,7 +1,9 @@
-package com.creativecompany.all;
+package com.creativecompany.all.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
-import com.creativecompany.all.allContract.IAllView;
+import com.creativecompany.all.AllContract.IAllView;
 import com.creativecompany.data.bean.Activity;
 
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ import butterknife.Unbinder;
  * Github FourfireChen
  */
 
-public class AllActivityFragment extends BaseFragment implements IAllView {
+public class ActivityFragment extends BaseFragment implements IAllView, DrawerFragemnt.DrawerCallback {
     @BindView(R.id.all_peoplenumber)
     Button allPeoplenumber;
     @BindView(R.id.all_time)
@@ -41,6 +44,8 @@ public class AllActivityFragment extends BaseFragment implements IAllView {
     Unbinder unbinder;
     @BindView(R.id.all_act_drawer)
     DrawerLayout allActDrawer;
+
+
     //临时数据，测试一下而已
     private ArrayList<Activity> mActivities = new ArrayList<>();
     private ActivitiesListAdapter mActivitiesListAdapter = new ActivitiesListAdapter();
@@ -57,9 +62,18 @@ public class AllActivityFragment extends BaseFragment implements IAllView {
         mActivities.add(new Activity());
         mActivitiesListAdapter.setActivities(mActivities);
 
+        init();
+
+        return view;
+    }
+
+    private void init(){
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = manager.beginTransaction();
+        fragmentTransaction.replace(R.id.all_act_drawerplace, new DrawerFragemnt());
+        fragmentTransaction.commit();
         allList.setAdapter(mActivitiesListAdapter);
         allList.setLayoutManager(new LinearLayoutManager(getContext()));
-        return view;
     }
 
     @Override
@@ -79,5 +93,10 @@ public class AllActivityFragment extends BaseFragment implements IAllView {
                 allActDrawer.openDrawer(Gravity.END);
                 break;
         }
+    }
+
+    @Override
+    public void closeDrawer() {
+        allActDrawer.closeDrawers();
     }
 }
