@@ -91,7 +91,7 @@ public class SelectorListAdapter extends RecyclerView.Adapter<SelectorListAdapte
                 items.add("周四");
                 items.add("周五");
                 items.add("周六");
-                items.add("周七");
+                items.add("周日");
                 break;
             case WORK_TIME:
                 items.add(" 1h ");

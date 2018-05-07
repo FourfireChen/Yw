@@ -16,6 +16,8 @@ import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
 import com.creativecompany.all.AllActivity;
 import com.creativecompany.data.bean.Activity;
+import com.creativecompany.detail.DetailActivity;
+
 import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,9 +66,7 @@ public class HomeActivityFragment extends BaseFragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        /**
-         * jumpToAnotherActivity(DetailActivity.class);
-         */
-        Toast.makeText(getContext(), "点了活动" + position, Toast.LENGTH_SHORT).show();
+        jumpToAnotherActivity(DetailActivity.class);
+        //Toast.makeText(getContext(), "点了活动" + position, Toast.LENGTH_SHORT).show();
     }
 }

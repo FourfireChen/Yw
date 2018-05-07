@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/actsignup_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:text="报名"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <ImageView
+            android:src="@drawable/home_black_36dp"
+            android:id="@+id/takepartin_act_post"
+            android:layout_width="120dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/takepartin_summary"
+            android:text="概述"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/signup_school"
+        android:hint="您的学校"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <EditText
+        android:id="@+id/signup_major"
+        android:hint="您的院系"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <EditText
+        android:id="@+id/signup_studentid"
+        android:hint="您的学号"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <EditText
+        android:id="@+id/signup_name"
+        android:hint="您的真实姓名"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <EditText
+        android:id="@+id/signup_contact"
+        android:hint="您的联系方式"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <Button
+        android:id="@+id/signup_submit"
+        android:text="提交"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+</LinearLayout>

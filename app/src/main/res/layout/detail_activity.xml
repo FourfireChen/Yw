@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:layout_alignParentTop="true"
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:text="详情"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_below="@id/detail_toolbar"
+        android:layout_above="@id/joinin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+                <ImageView
+                    android:src="@drawable/home_header_1"
+                    android:id="@+id/detali_activity_post"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/is_signup"
+                    android:layout_gravity="bottom|end"
+                    android:text="未报名"
+                    android:textSize="20dp"
+                    android:background="@drawable/textview_shape"
+                    android:gravity="center"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp" />
+            </FrameLayout>
+            <TextView
+                android:id="@+id/detail_name"
+                android:text="活动名称"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:id="@+id/detail_time"
+                android:text="地点"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:id="@+id/detail_contact"
+                android:text="联系方式"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:text="主办方"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/detail_sponsor_avator"
+                    android:layout_gravity="center"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+                <TextView
+                    android:id="@+id/detail_sponsor_name"
+                    android:text="主办方名字"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <TextView
+                android:text="活动详情"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <TextView
+                android:id="@+id/detail_content"
+                android:text="活动详情"
+                android:textSize="18dp"
+                android:gravity="start"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="已报名"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:text="我要报名"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/joinin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+</RelativeLayout>

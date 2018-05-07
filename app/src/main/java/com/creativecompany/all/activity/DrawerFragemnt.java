@@ -48,6 +48,9 @@ public class DrawerFragemnt extends Fragment {
     private SelectorListAdapter mTimeSelectorsAdapter = new SelectorListAdapter(TIME),
             mWorkTimeSelectorsAdapter = new SelectorListAdapter(WORK_TIME),
             mStatusSelectorsAdapter = new SelectorListAdapter(STATUS);
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,6 +80,8 @@ public class DrawerFragemnt extends Fragment {
     public void setOnCheckBoxListListener(onCheckBoxListListener onCheckBoxListListener) {
         mOnCheckBoxListListener = onCheckBoxListListener;
     }
+
+
 
     @OnClick({R.id.close_drawer, R.id.drawer_cancel, R.id.drawer_confirm})
     public void onViewClicked(View view) {

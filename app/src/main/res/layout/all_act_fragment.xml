@@ -47,7 +47,7 @@
         android:id="@+id/all_act_drawerplace"
         android:orientation="vertical"
         android:layout_gravity="end"
-        android:layout_width="500dp"
+        android:layout_width="300dp"
         android:layout_height="400dp">
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

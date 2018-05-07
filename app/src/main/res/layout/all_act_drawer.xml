@@ -75,10 +75,12 @@
             android:layout_height="60dp">
             <Button
                 android:id="@+id/drawer_cancel"
+                android:text="取消"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
             <Button
+                android:text="确认"
                 android:id="@+id/drawer_confirm"
                 android:layout_weight="1"
                 android:layout_width="0dp"

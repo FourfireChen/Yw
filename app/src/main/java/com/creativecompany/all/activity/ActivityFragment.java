@@ -70,7 +70,9 @@ public class ActivityFragment extends BaseFragment implements IAllView, DrawerFr
     private void init(){
         FragmentManager manager = getFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-        fragmentTransaction.replace(R.id.all_act_drawerplace, new DrawerFragemnt());
+        DrawerFragemnt drawerFragemnt = new DrawerFragemnt();
+        drawerFragemnt.setDrawerCallback(this);
+        fragmentTransaction.replace(R.id.all_act_drawerplace, drawerFragemnt);
         fragmentTransaction.commit();
         allList.setAdapter(mActivitiesListAdapter);
         allList.setLayoutManager(new LinearLayoutManager(getContext()));
