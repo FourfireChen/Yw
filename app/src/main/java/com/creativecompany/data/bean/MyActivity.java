@@ -6,11 +6,11 @@ package com.creativecompany.data.bean;
  * Github FourfireChen
  */
 
-public class Activity {
+public class MyActivity {
     private String title, summary, time, content, id;
     private byte[] avator;
 
-    public Activity(String title, String summary, String time, String content, byte[] avator, String id) {
+    public MyActivity(String title, String summary, String time, String content, byte[] avator, String id) {
         this.title = title;
         this.summary = summary;
         this.time = time;
@@ -19,7 +19,7 @@ public class Activity {
         this.id = id;
     }
 
-    public Activity() {
+    public MyActivity() {
     }
 
     public String getTitle() {

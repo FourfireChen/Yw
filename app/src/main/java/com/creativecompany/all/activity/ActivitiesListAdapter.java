@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.creativecompany.R;
-import com.creativecompany.data.bean.Activity;
+import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
 
@@ -21,9 +21,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class ActivitiesListAdapter extends RecyclerView.Adapter<ActivitiesListAdapter.ActivitiesViewHolder> {
-    private ArrayList<Activity> mActivities;
+    private ArrayList<MyActivity> mActivities;
 
-    public ActivitiesListAdapter(ArrayList<Activity> activities) {
+    public ActivitiesListAdapter(ArrayList<MyActivity> activities) {
         mActivities = activities;
     }
 
@@ -45,7 +45,7 @@ public class ActivitiesListAdapter extends RecyclerView.Adapter<ActivitiesListAd
         return mActivities == null ? 0 : mActivities.size();
     }
 
-    public void setActivities(ArrayList<Activity> activities) {
+    public void setActivities(ArrayList<MyActivity> activities) {
         mActivities = activities;
     }
 

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.creativecompany.R;
 import com.creativecompany.all.activity.ActivityFragment;
@@ -43,9 +44,20 @@ public class AllActivity extends AppCompatActivity{
 
     private void init() {
         setSupportActionBar(allToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         fragments.add(new ActivityFragment());
         fragments.add(new SponorFragment());
         allViewpager.setAdapter(new AllPagerAdatper(getSupportFragmentManager(), fragments));
         allTab.setupWithViewPager(allViewpager);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

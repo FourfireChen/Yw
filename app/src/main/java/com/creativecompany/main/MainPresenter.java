@@ -25,7 +25,7 @@ public class MainPresenter extends BasePresenter<ImainView> implements ImainPres
     public void initUser() {
         User user = User.getCurrentUser(User.class);
         if (user == null) {
-            imainView.jumpToAnotherActivity(LoginActivity.class);
+            imainView.jumpToAnotherActivity(LoginActivity.class, null);
         }
     }
 }

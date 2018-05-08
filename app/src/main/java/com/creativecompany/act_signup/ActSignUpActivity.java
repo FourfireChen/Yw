@@ -47,6 +47,7 @@ public class ActSignUpActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actsignup_activity);
         ButterKnife.bind(this);
+        init();
     }
 
     private void init() {

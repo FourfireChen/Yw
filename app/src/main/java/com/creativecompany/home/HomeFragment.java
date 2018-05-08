@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
+import com.creativecompany.common.ActivitiesOrSponsorFragment;
 import com.creativecompany.home.HomeContract.IhomePresenter;
 import com.creativecompany.home.HomeContract.IhomeView;
 import com.creativecompany.main.MainFragmentAdapter;
@@ -69,8 +70,8 @@ public class HomeFragment extends BaseFragment<IhomePresenter> implements IhomeV
         fragmentAdapter = new MainFragmentAdapter(getFragmentManager(), fragments);
         mainHomeHeaderviewpager.setAdapter(fragmentAdapter);
         mainHomeHeaderindicator.setViewPager(mainHomeHeaderviewpager);
-        replaceFragment(new HomeActivityFragment(), 1);
-        replaceFragment(new HomeActivityFragment(), 2);
+        replaceFragment(new ActivitiesOrSponsorFragment(), 1);
+        replaceFragment(new ActivitiesOrSponsorFragment(), 2);
         return view;
     }
 

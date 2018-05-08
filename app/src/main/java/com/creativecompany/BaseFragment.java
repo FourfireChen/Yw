@@ -1,6 +1,8 @@
 package com.creativecompany;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
@@ -28,8 +30,10 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
     }
 
     @Override
-    public void jumpToAnotherActivity(Class nextActivity) {
+    public void jumpToAnotherActivity(Class nextActivity, @Nullable Bundle bundle) {
         Intent intent = new Intent(getActivity(), nextActivity);
+        if(bundle != null)
+            intent.putExtras(bundle);
         startActivity(intent);
     }
 

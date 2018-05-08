@@ -49,6 +49,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
         ButterKnife.bind(this);
+        init();
     }
 
     private void init(){
@@ -62,7 +63,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
             case R.id.detail_time:
                 break;
             case R.id.joinin:
-                jumpToAnotherActivity(ActSignUpActivity.class);
+                jumpToAnotherActivity(ActSignUpActivity.class, null);
                 break;
         }
     }

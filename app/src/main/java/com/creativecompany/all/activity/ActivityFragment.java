@@ -12,12 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
 import com.creativecompany.all.AllContract.IAllView;
-import com.creativecompany.data.bean.Activity;
+import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
 
@@ -47,7 +46,7 @@ public class ActivityFragment extends BaseFragment implements IAllView, DrawerFr
 
 
     //临时数据，测试一下而已
-    private ArrayList<Activity> mActivities = new ArrayList<>();
+    private ArrayList<MyActivity> mActivities = new ArrayList<>();
     private ActivitiesListAdapter mActivitiesListAdapter = new ActivitiesListAdapter();
 
     @Nullable
@@ -57,9 +56,9 @@ public class ActivityFragment extends BaseFragment implements IAllView, DrawerFr
         unbinder = ButterKnife.bind(this, view);
 
         //临时数据，测试一下而已
-        mActivities.add(new Activity());
-        mActivities.add(new Activity());
-        mActivities.add(new Activity());
+        mActivities.add(new MyActivity());
+        mActivities.add(new MyActivity());
+        mActivities.add(new MyActivity());
         mActivitiesListAdapter.setActivities(mActivities);
 
         init();

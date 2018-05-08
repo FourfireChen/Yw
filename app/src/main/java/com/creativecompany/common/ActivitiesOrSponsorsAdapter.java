@@ -1,4 +1,4 @@
-package com.creativecompany.home;
+package com.creativecompany.common;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.creativecompany.R;
-import com.creativecompany.data.bean.Activity;
+import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
 
@@ -19,16 +19,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Github FourfireChen
  */
 
-public class HomeActivitiesAdapter extends BaseAdapter {
+public class ActivitiesOrSponsorsAdapter extends BaseAdapter {
     private CircleImageView activityavator;
     private TextView homeItemListContent;
-    private ArrayList<Activity> activities;
+    private ArrayList<MyActivity> activities;
 
 
-    public HomeActivitiesAdapter() {
-    }
-
-    public HomeActivitiesAdapter(ArrayList<Activity> activities) {
+    public ActivitiesOrSponsorsAdapter(ArrayList<MyActivity> activities) {
         this.activities = activities;
     }
 
@@ -55,7 +52,7 @@ public class HomeActivitiesAdapter extends BaseAdapter {
         return view;
     }
 
-    public void setActivities(ArrayList<Activity> activities) {
+    public void setActivities(ArrayList<MyActivity> activities) {
         this.activities = activities;
     }
 
