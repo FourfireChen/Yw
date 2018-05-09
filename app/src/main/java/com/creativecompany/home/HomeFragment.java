@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
 import com.creativecompany.common.ActivitiesOrSponsorFragment;
+import com.creativecompany.data.bean.MyActivity;
+import com.creativecompany.data.bean.Sponsor;
 import com.creativecompany.home.HomeContract.IhomePresenter;
 import com.creativecompany.home.HomeContract.IhomeView;
 import com.creativecompany.main.MainFragmentAdapter;
@@ -26,6 +28,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.relex.circleindicator.CircleIndicator;
+
+import static com.creativecompany.util.ID.ACTIVITIES;
+import static com.creativecompany.util.ID.FRAGEMTN_TYPE;
+import static com.creativecompany.util.ID.SPONSORS;
 
 /**
  * Created by 45089 on 2018/4/7.
@@ -51,7 +57,7 @@ public class HomeFragment extends BaseFragment<IhomePresenter> implements IhomeV
         homeToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jumpToAnotherActivity(PositionActivity.class);
+                jumpToAnotherActivity(PositionActivity.class, null);
             }
         });
         unbinder = ButterKnife.bind(this, view);
@@ -70,8 +76,18 @@ public class HomeFragment extends BaseFragment<IhomePresenter> implements IhomeV
         fragmentAdapter = new MainFragmentAdapter(getFragmentManager(), fragments);
         mainHomeHeaderviewpager.setAdapter(fragmentAdapter);
         mainHomeHeaderindicator.setViewPager(mainHomeHeaderviewpager);
-        replaceFragment(new ActivitiesOrSponsorFragment(), 1);
-        replaceFragment(new ActivitiesOrSponsorFragment(), 2);
+        ActivitiesOrSponsorFragment activitiesFragment = new ActivitiesOrSponsorFragment();
+        ActivitiesOrSponsorFragment sponsorFragment = new ActivitiesOrSponsorFragment();
+        Bundle bundleActivity = new Bundle();
+        bundleActivity.putInt(FRAGEMTN_TYPE, ACTIVITIES);
+        Bundle bundleSponsor = new Bundle();
+        bundleSponsor.putInt(FRAGEMTN_TYPE, SPONSORS);
+
+        activitiesFragment.setArguments(bundleActivity);
+        sponsorFragment.setArguments(bundleSponsor);
+
+        replaceFragment(activitiesFragment, 1);
+        replaceFragment(sponsorFragment, 2);
         return view;
     }
 

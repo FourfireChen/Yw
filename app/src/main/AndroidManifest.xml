@@ -46,5 +46,6 @@
         <activity android:name=".detail.DetailActivity"/>
         <activity android:name=".all.AllActivity"/>
         <activity android:name=".act_signup.ActSignUpActivity"/>
+        <activity android:name=".sponsor.SponsorActivity"/>
     </application>
 </manifest>

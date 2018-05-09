@@ -123,10 +123,41 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="80dp">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_gravity="center"
-                    android:layout_width="60dp"
+                    android:src="@drawable/me_black_36dp"
+                    android:id="@+id/detail_participant_avator1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/me_black_36dp"
+                    android:id="@+id/detail_participant_avator2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/me_black_36dp"
+                    android:id="@+id/detail_participant_avator3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/me_black_36dp"
+                    android:id="@+id/detail_participant_avator4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/me_black_36dp"
+                    android:id="@+id/detail_participant_avator5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="60dp" />
             </LinearLayout>
         </LinearLayout>

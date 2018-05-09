@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/me_black_36dp"
             android:layout_margin="20dp"
             android:id="@+id/me_myicon"
             android:layout_width="80dp"

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.creativecompany.BaseActivity;
@@ -31,6 +32,8 @@ public class SponsorActivity extends BaseActivity {
     TextView mSponorName;
     @BindView(R.id.sponsor_summary)
     TextView mSponsorSummary;
+    @BindView(R.id.sponsor_activities)
+    ListView mSponsorActivities;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

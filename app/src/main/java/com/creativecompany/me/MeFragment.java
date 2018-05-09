@@ -56,15 +56,10 @@ public class MeFragment extends BaseFragment implements ImeView {
         if (currentUser != null) {
             BmobUser.logOut();
         }
-        jumpToAnotherActivity(LoginActivity.class);
+        jumpToAnotherActivity(LoginActivity.class, null);
         selfFinish();
     }
 
-    @Override
-    public void jumpToAnotherActivity(Class nextActivity) {
-        Intent intent = new Intent(getActivity(), nextActivity);
-        startActivity(intent);
-    }
 
     @Override
     public void toast(String content) {
