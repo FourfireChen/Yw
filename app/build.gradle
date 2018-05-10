@@ -5,7 +5,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.creativecompany"
-        minSdkVersion 24
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -16,6 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -45,4 +49,16 @@ dependencies {
     //内存泄漏检测工具
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //lifecycle、livedata、viewmodel
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    //implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
+    //room
+    implementation "android.arch.persistence.room:runtime:1.1.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.0"
+    //paging
+    //implementation "android.arch.paging:runtime:1.0.0"
+    //workmanager
+    implementation "android.arch.work:work-runtime:1.0.0-alpha01"
+
 }

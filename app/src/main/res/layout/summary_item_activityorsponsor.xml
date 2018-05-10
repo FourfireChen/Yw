@@ -16,7 +16,7 @@
         android:textSize="18dp"
         android:paddingStart="15dp"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="25dp" />
     <TextView
         android:id="@+id/summary_summary"
         android:textSize="15dp"

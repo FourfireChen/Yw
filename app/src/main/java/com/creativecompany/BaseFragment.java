@@ -25,7 +25,7 @@ public class BaseFragment<T extends IBasePresenter> extends Fragment implements 
     public void onDestroyView() {
         super.onDestroyView();
         mApplication.getRefWatcher(getActivity()).watch(this);
-        if (presenter != null) presenter.destroy();
+        if (presenter != null)  presenter.destroy();
         presenter = null;
     }
 

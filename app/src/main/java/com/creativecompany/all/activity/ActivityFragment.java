@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
-import com.creativecompany.all.AllContract.IAllView;
+
 import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import butterknife.Unbinder;
  * Github FourfireChen
  */
 
-public class ActivityFragment extends BaseFragment implements IAllView, DrawerFragemnt.DrawerCallback {
+public class ActivityFragment extends BaseFragment implements DrawerFragemnt.DrawerCallback {
     @BindView(R.id.all_peoplenumber)
     Button allPeoplenumber;
     @BindView(R.id.all_time)

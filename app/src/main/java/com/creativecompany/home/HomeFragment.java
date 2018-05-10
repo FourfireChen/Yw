@@ -61,21 +61,28 @@ public class HomeFragment extends BaseFragment<IhomePresenter> implements IhomeV
             }
         });
         unbinder = ButterKnife.bind(this, view);
-        Bundle bundle1 = new Bundle();
+
+        /**
+         * todo:这段代码只是造了三个假，以后要从服务器拖数据下来，把逻辑写在fragment中
+         */
+        /*Bundle bundle1 = new Bundle();
         bundle1.putInt("image", R.drawable.home_header_1);
         Bundle bundle2 = new Bundle();
         bundle2.putInt("image", R.drawable.home_header_2);
         Bundle bundle3 = new Bundle();
-        bundle3.putInt("image", R.drawable.home_header_3);
+        bundle3.putInt("image", R.drawable.home_header_3);*/
         fragments.add(new HomeHeaderFragment());
-        fragments.get(0).setArguments(bundle1);
+        //fragments.get(0).setArguments(bundle1);
         fragments.add(new HomeHeaderFragment());
-        fragments.get(1).setArguments(bundle2);
+        //fragments.get(1).setArguments(bundle2);
         fragments.add(new HomeHeaderFragment());
-        fragments.get(2).setArguments(bundle3);
+        //fragments.get(2).setArguments(bundle3);
         fragmentAdapter = new MainFragmentAdapter(getFragmentManager(), fragments);
         mainHomeHeaderviewpager.setAdapter(fragmentAdapter);
+        mainHomeHeaderviewpager.setOffscreenPageLimit(3);
         mainHomeHeaderindicator.setViewPager(mainHomeHeaderviewpager);
+
+
         ActivitiesOrSponsorFragment activitiesFragment = new ActivitiesOrSponsorFragment();
         ActivitiesOrSponsorFragment sponsorFragment = new ActivitiesOrSponsorFragment();
         Bundle bundleActivity = new Bundle();
