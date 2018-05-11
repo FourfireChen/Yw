@@ -6,11 +6,12 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.LogInCallback;
+import com.avos.avoscloud.SignUpCallback;
 import com.creativecompany.data.IdataSource;
 import com.creativecompany.data.bean.User;
-
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by 45089 on 2018/4/5.
@@ -25,24 +26,24 @@ public class NetModel implements InetModel {
     }
 
     @Override
-    public void login(User user, final IdataSource.Callback<User> callback) {
-        user.login(new SaveListener<User>() {
+    public void login(String username, String password, final IdataSource.Callback<User> callback) throws AVException {
+        AVUser.logInInBackground(username, password, new LogInCallback<User>() {
             @Override
-            public void done(User user, BmobException e) {
+            public void done(User avUser, AVException e) {
                 if (e == null) {
-                    callback.onSuccess(user);
+                    callback.onSuccess(avUser);
                 } else {
                     callback.onFail(e);
                 }
             }
-        });
+        }, User.class);
     }
 
     @Override
     public void register(User user, final IdataSource.Callback<User> callback) {
-        user.signUp(new SaveListener<User>() {
+        user.signUpInBackground(new SignUpCallback() {
             @Override
-            public void done(User user, BmobException e) {
+            public void done(AVException e) {
                 if (e == null) {
                     callback.onSuccess(user);
                 } else {

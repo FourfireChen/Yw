@@ -2,6 +2,7 @@ package com.creativecompany.data.local;
 
 import android.content.Context;
 
+import com.avos.avoscloud.AVUser;
 import com.creativecompany.data.BaseModel;
 import com.creativecompany.data.bean.User;
 

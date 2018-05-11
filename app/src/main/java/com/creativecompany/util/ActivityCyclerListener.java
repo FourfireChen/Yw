@@ -6,11 +6,9 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.util.Log;
 
-import com.bumptech.glide.manager.LifecycleListener;
 import com.creativecompany.mApplication;
 import com.squareup.leakcanary.RefWatcher;
 
-import static cn.bmob.v3.BmobRealTimeData.TAG;
 
 /**
  * Created by 陈钊燚 on 2018/5/10.
@@ -28,12 +26,12 @@ public class ActivityCyclerListener implements LifecycleObserver {
 
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    public void start(){
-        Log.i(TAG, "start");
+    public void start() {
+        Log.i("lifecycler observer", "start");
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void addLeakWatcher(){
+    public void addLeakWatcher() {
         RefWatcher refWatcher = mApplication.getRefWatcher(mActivity);
         refWatcher.watch(mActivity);
     }

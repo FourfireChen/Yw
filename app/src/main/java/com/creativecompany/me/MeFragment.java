@@ -1,6 +1,7 @@
 package com.creativecompany.me;
 
-import android.content.Intent;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVUser;
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
 import com.creativecompany.data.bean.User;
@@ -20,7 +23,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import cn.bmob.v3.BmobUser;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -35,13 +37,37 @@ public class MeFragment extends BaseFragment implements ImeView {
     @BindView(R.id.logout)
     Button logout;
     Unbinder unbinder;
+    @BindView(R.id.me_username)
+    TextView mMeUsername;
+    @BindView(R.id.me_work_hours)
+    TextView mMeWorkHours;
+    @BindView(R.id.me_ranking)
+    TextView mMeRanking;
+    private MeModel mMeModel;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_me_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        mMeModel = ViewModelProviders.of(this).get(MeModel.class);
+
+        mMeModel.getUserLiveData().observe(this, user -> mMeUsername.setText(user.getUsername())
+        );
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (AVUser.getCurrentUser() == null) {
+            jumpToAnotherActivity(LoginActivity.class, null);
+        } else {
+
+        }
+
     }
 
     @Override
@@ -54,7 +80,7 @@ public class MeFragment extends BaseFragment implements ImeView {
     public void onViewClicked() {
         User currentUser = User.getCurrentUser(User.class);
         if (currentUser != null) {
-            BmobUser.logOut();
+            AVUser.logOut();
         }
         jumpToAnotherActivity(LoginActivity.class, null);
         selfFinish();
@@ -70,4 +96,5 @@ public class MeFragment extends BaseFragment implements ImeView {
     public void selfFinish() {
         getActivity().finish();
     }
+
 }

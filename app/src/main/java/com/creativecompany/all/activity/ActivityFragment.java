@@ -1,5 +1,9 @@
 package com.creativecompany.all.activity;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +23,7 @@ import com.creativecompany.R;
 import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,8 +50,6 @@ public class ActivityFragment extends BaseFragment implements DrawerFragemnt.Dra
     DrawerLayout allActDrawer;
 
 
-    //临时数据，测试一下而已
-    private ArrayList<MyActivity> mActivities = new ArrayList<>();
     private ActivitiesListAdapter mActivitiesListAdapter = new ActivitiesListAdapter();
 
     @Nullable
@@ -55,11 +58,13 @@ public class ActivityFragment extends BaseFragment implements DrawerFragemnt.Dra
         View view = inflater.inflate(R.layout.all_act_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        //临时数据，测试一下而已
-        mActivities.add(new MyActivity());
-        mActivities.add(new MyActivity());
-        mActivities.add(new MyActivity());
-        mActivitiesListAdapter.setActivities(mActivities);
+        ActivityModel activityModel = ViewModelProviders.of(this).get(ActivityModel.class);
+
+        activityModel.getActivities().observe(this, mActivities->{
+            mActivitiesListAdapter.setActivities((ArrayList<MyActivity>) mActivities);
+        });
+
+        activityModel.loadActivity();
 
         init();
 

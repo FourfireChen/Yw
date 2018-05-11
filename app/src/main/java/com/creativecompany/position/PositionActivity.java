@@ -129,7 +129,7 @@ public class PositionActivity extends BaseActivity<IpositionPresenter> implement
         if (localtionCity.getText().toString().equals("定位失败")) {
             ipositionPresenter.location(getApplicationContext());
         } else {
-            User.getCurrentUser(User.class).setPositon(localtionCity.getText().toString());
+            User.getCurrentUser(User.class).setPosition(localtionCity.getText().toString());
             finish();
         }
     }

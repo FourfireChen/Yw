@@ -3,6 +3,8 @@ package com.creativecompany.data.net;
 import android.content.Context;
 
 import com.amap.api.location.AMapLocation;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
 import com.creativecompany.data.BaseModel;
 import com.creativecompany.data.IdataSource;
 import com.creativecompany.data.bean.User;
@@ -12,7 +14,8 @@ import com.creativecompany.data.bean.User;
  */
 
 public interface InetModel extends BaseModel {
-    void login(User user, IdataSource.Callback<User> callback);
+
+    void login(String username, String password, IdataSource.Callback<User> callback) throws AVException;
 
     void register(User user, IdataSource.Callback<User> callback);
 

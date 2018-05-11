@@ -11,17 +11,16 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
-import com.creativecompany.util.ActivityCyclerListener;
 import com.creativecompany.R;
 import com.creativecompany.home.HomeFragment;
 import com.creativecompany.me.MeFragment;
+import com.creativecompany.util.ActivityCyclerListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.bmob.v3.Bmob;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,13 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
         ButterKnife.bind(this);
-
-        Bmob.initialize(this, "42c73e0de9562a39238f555783e882bd");
-
-        //todo:这里要做一个是否已登录的判断，或者是在me中做一个未登录的提示
 
         initView();
     }
@@ -69,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_toolbar_search:
+
                 break;
         }
     }

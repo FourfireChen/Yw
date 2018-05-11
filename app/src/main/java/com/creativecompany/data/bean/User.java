@@ -1,36 +1,39 @@
 package com.creativecompany.data.bean;
 
-import cn.bmob.v3.BmobUser;
+import com.avos.avoscloud.AVUser;
 
 /**
- * Created by 45089 on 2018/4/14.
+ * Created by 陈钊燚 on 2018/5/11.
+ * QQ 1215638092
+ * Github FourfireChen
  */
-public class User extends BmobUser {
-    private String positon;
-    private String gender;
-    private Integer age;
+public class User extends AVUser {
+    String position, gender;
+    int age, workHours, ranking;
 
 
-    public User() {
-        super();
-        positon = "";
-        gender = "";
-        age = 0;
+    public int getWorkHours() {
+        return workHours;
     }
 
-    public User(String positon, String gender, Integer age) {
-        super();
-        this.positon = positon;
-        this.gender = gender;
-        this.age = age;
+    public void setWorkHours(int workHours) {
+        this.workHours = workHours;
     }
 
-    public String getPositon() {
-        return positon;
+    public int getRanking() {
+        return ranking;
     }
 
-    public void setPositon(String positon) {
-        this.positon = positon;
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getGender() {
@@ -41,12 +44,11 @@ public class User extends BmobUser {
         this.gender = gender;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
-
 }

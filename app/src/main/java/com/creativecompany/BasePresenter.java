@@ -11,7 +11,7 @@ import java.lang.ref.SoftReference;
 
 public class BasePresenter<T extends IBaseView> implements IBasePresenter {
     private SoftReference<T> view;
-    private IdataSource idataSource = DataRepository.getDataRes();
+    private IdataSource idataSource = new DataRepository();
 
     @Override
     public void destroy() {

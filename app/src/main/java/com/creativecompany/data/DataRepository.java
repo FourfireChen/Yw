@@ -1,24 +1,23 @@
 package com.creativecompany.data;
 
 import android.content.Context;
-
 import com.amap.api.location.AMapLocation;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVMobilePhoneVerifyCallback;
+import com.avos.avoscloud.AVSMS;
+import com.avos.avoscloud.AVSMSOption;
+import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.RequestMobileCodeCallback;
 import com.creativecompany.data.bean.User;
 import com.creativecompany.data.local.IlocalModel;
 import com.creativecompany.data.local.LocalModel;
 import com.creativecompany.data.net.InetModel;
 import com.creativecompany.data.net.NetModel;
-
 import java.util.ArrayList;
-
-import cn.bmob.v3.BmobSMS;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.QueryListener;
-import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * Created by 45089 on 2018/4/5.
@@ -28,7 +27,7 @@ public class DataRepository implements IdataSource {
     private IlocalModel localData;
     private InetModel netData;
 
-    private DataRepository() {
+    public DataRepository() {
         localData = LocalModel.getLocalModel();
         netData = NetModel.getNetModel();
     }
@@ -47,22 +46,24 @@ public class DataRepository implements IdataSource {
 
     @Override
     public boolean login(final Context context, String username, String password, final Callback callback) {
-        final User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        netData.login(user, new Callback<User>() {
-            @Override
-            public void onSuccess(User back) {
-                localData.openDatabase(context);
-                localData.saveUser(back);
-                callback.onSuccess(null);
-            }
+        try {
+            netData.login(username, password, new Callback<User>() {
+                @Override
+                public void onSuccess(User back) {
+                    localData.openDatabase(context);
+                    localData.saveUser(back);
+                    callback.onSuccess(null);
+                }
 
-            @Override
-            public void onFail(Exception e) {
-                callback.onFail(e);
-            }
-        });
+                @Override
+                public void onFail(Exception e) {
+                    callback.onFail(e);
+                }
+            });
+        } catch (AVException e) {
+            callback.onFail(e);
+            e.printStackTrace();
+        }
         return true;
     }
 
@@ -90,9 +91,12 @@ public class DataRepository implements IdataSource {
 
     @Override
     public void sendVerMes(final String phonenumber, final Callback callback) {
-        BmobSMS.requestSMSCode(phonenumber, "ywSmsTem", new QueryListener<Integer>() {
+        AVSMSOption option = new AVSMSOption();
+        option.setTtl(10);
+        option.setApplicationName("益务");
+        AVSMS.requestSMSCodeInBackground(phonenumber, option, new RequestMobileCodeCallback() {
             @Override
-            public void done(Integer integer, BmobException e) {
+            public void done(AVException e) {
                 if (e == null) {
                     callback.onSuccess(null);
                 } else {
@@ -104,10 +108,10 @@ public class DataRepository implements IdataSource {
 
     @Override
     public void verifyMesCode(String phonenumber, String code, final Callback callback) {
-        BmobSMS.verifySmsCode(phonenumber, code, new UpdateListener() {
+        AVSMS.verifySMSCodeInBackground(code, phonenumber, new AVMobilePhoneVerifyCallback() {
             @Override
-            public void done(BmobException e) {
-                if (e != null) {
+            public void done(AVException e) {
+                if (e == null) {
                     callback.onSuccess(null);
                 } else {
                     callback.onFail(e);
@@ -157,12 +161,5 @@ public class DataRepository implements IdataSource {
         });
     }
 
-    private static class DataHolder {
-        private static DataRepository dataRepository = new DataRepository();
-    }
-
-    public static DataRepository getDataRes() {
-        return DataHolder.dataRepository;
-    }
 
 }

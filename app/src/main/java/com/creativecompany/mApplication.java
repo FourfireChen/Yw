@@ -3,6 +3,7 @@ package com.creativecompany;
 import android.app.Application;
 import android.content.Context;
 
+import com.avos.avoscloud.AVOSCloud;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -22,5 +23,8 @@ public class mApplication extends Application {
     public void onCreate() {
         super.onCreate();
         refWatcher = LeakCanary.install(this);
+        AVOSCloud.initialize(this, "Kjn89QAygzlLClb5APRESeTU-gzGzoHsz", "KLS2iBjTgX2AOUkdNCAkmPKl");
+        AVOSCloud.setDebugLogEnabled(true);
+
     }
 }
