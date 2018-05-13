@@ -97,10 +97,9 @@ public class ActivitiesOrSponsorFragment extends BaseFragment implements Adapter
 
     @OnClick(R.id.home_item_all)
     public void onViewClicked() {
-        /*Bundle types = new Bundle();
+        Bundle types = new Bundle();
         types.putInt(FRAGEMTN_TYPE, type);
-        jumpToAnotherActivity(AllActivity.class, types);*/
-        ViewModelProviders.of(this).get(CommonModel.class).changeActivity2();
+        jumpToAnotherActivity(AllActivity.class, types);
     }
 
     @Override

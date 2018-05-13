@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ToggleButton;
 
 import com.creativecompany.R;
 import com.creativecompany.util.ID;
@@ -36,9 +37,9 @@ public class SelectorListAdapter extends RecyclerView.Adapter<SelectorListAdapte
 
     @Override
     public SelectorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = new Button(parent.getContext());
-        ((Button) view).setBackground(parent.getResources().getDrawable(R.drawable.buttonselector, null));
-        ((Button) view).setOnClickListener(new View.OnClickListener() {
+        View view = new ToggleButton(parent.getContext());
+        view.setBackground(parent.getResources().getDrawable(R.drawable.all_drawer_selector_item, null));
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int index = items.indexOf(((Button) v).getText());
@@ -52,6 +53,8 @@ public class SelectorListAdapter extends RecyclerView.Adapter<SelectorListAdapte
 
     @Override
     public void onBindViewHolder(SelectorViewHolder holder, int position) {
+        holder.mButton.setTextOn(items.get(position));
+        holder.mButton.setTextOff(items.get(position));
         holder.mButton.setText(items.get(position));
     }
 
@@ -73,11 +76,11 @@ public class SelectorListAdapter extends RecyclerView.Adapter<SelectorListAdapte
     }
 
     class SelectorViewHolder extends RecyclerView.ViewHolder {
-        private Button mButton;
+        private ToggleButton mButton;
 
         public SelectorViewHolder(View itemView) {
             super(itemView);
-            mButton = (Button) itemView;
+            mButton = (ToggleButton) itemView;
         }
     }
 

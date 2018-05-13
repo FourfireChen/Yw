@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * QQ 1215638092
  * Github FourfireChen
  */
+
 public class CommonModel extends ViewModel {
     private MutableLiveData<ArrayList<MyActivity>> mActivityList = new MutableLiveData<>();
     private MutableLiveData<ArrayList<Sponsor>> mSponsorList = new MutableLiveData<>();
@@ -61,20 +62,4 @@ public class CommonModel extends ViewModel {
         });
     }
 
-    public void changeActivity1() {
-        ArrayList<MyActivity> activities = new ArrayList<>();
-        activities.add(new MyActivity("aa", "aa", null, null, null ,null));
-        activities.add(new MyActivity("aa", "aa", null, null, null ,null));
-        activities.add(new MyActivity("aa", "aa", null, null, null ,null));
-        mActivityList.postValue(activities);
-    }
-
-    public void changeActivity2() {
-        ArrayList<MyActivity> activities = new ArrayList<>();
-        activities.add(new MyActivity("bb", "bb", null, null, null ,null));
-        activities.add(new MyActivity("bb", "bb", null, null, null ,null));
-        activities.add(new MyActivity("bb", "bb", null, null, null ,null));
-        mActivityList.getValue().clear();
-        mActivityList.getValue().addAll(activities);
-    }
 }

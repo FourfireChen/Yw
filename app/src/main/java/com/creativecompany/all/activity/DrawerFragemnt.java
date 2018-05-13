@@ -45,10 +45,7 @@ public class DrawerFragemnt extends Fragment {
     Unbinder unbinder;
     private DrawerCallback mDrawerCallback;
     private onCheckBoxListListener mOnCheckBoxListListener;
-    private SelectorListAdapter mTimeSelectorsAdapter = new SelectorListAdapter(TIME),
-            mWorkTimeSelectorsAdapter = new SelectorListAdapter(WORK_TIME),
-            mStatusSelectorsAdapter = new SelectorListAdapter(STATUS);
-
+    private SelectorListAdapter mTimeSelectorsAdapter = new SelectorListAdapter(TIME), mWorkTimeSelectorsAdapter = new SelectorListAdapter(WORK_TIME), mStatusSelectorsAdapter = new SelectorListAdapter(STATUS);
 
 
     @Nullable
@@ -60,14 +57,13 @@ public class DrawerFragemnt extends Fragment {
         return view;
     }
 
-    private void init()
-    {
+    private void init() {
         mDrawerTimeSelector.setAdapter(mTimeSelectorsAdapter);
         mDrawerTimeSelector.setLayoutManager(new GridLayoutManager(getContext(), 4));
-        mDrawerTimeSelector.setAdapter(mTimeSelectorsAdapter);
-        mDrawerTimeSelector.setLayoutManager(new GridLayoutManager(getContext(), 4));
-        mDrawerTimeSelector.setAdapter(mTimeSelectorsAdapter);
-        mDrawerTimeSelector.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        mDrawerWorkTimeSelector.setAdapter(mWorkTimeSelectorsAdapter);
+        mDrawerWorkTimeSelector.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        mDrawerStatusSelector.setAdapter(mStatusSelectorsAdapter);
+        mDrawerStatusSelector.setLayoutManager(new GridLayoutManager(getContext(), 4));
     }
 
     @Override
@@ -80,7 +76,6 @@ public class DrawerFragemnt extends Fragment {
     public void setOnCheckBoxListListener(onCheckBoxListListener onCheckBoxListListener) {
         mOnCheckBoxListListener = onCheckBoxListListener;
     }
-
 
 
     @OnClick({R.id.close_drawer, R.id.drawer_cancel, R.id.drawer_confirm})
@@ -110,25 +105,21 @@ public class DrawerFragemnt extends Fragment {
         mDrawerCallback = drawerCallback;
     }
 
-    private HashMap<Integer, Integer> getCheckedIndexs(SelectorListAdapter adapter, int type)
-    {
+    private HashMap<Integer, Integer> getCheckedIndexs(SelectorListAdapter adapter, int type) {
         HashMap<Integer, Integer> checked = new HashMap<>();
-        for(int i = 0; i < adapter.getButtonsSelected().size(); i++)
-        {
-            if(adapter.getButtonsSelected().get(i))
-            {
+        for (int i = 0; i < adapter.getButtonsSelected().size(); i++) {
+            if (adapter.getButtonsSelected().get(i)) {
                 checked.put(type, i);
             }
         }
         return checked;
     }
 
-    interface DrawerCallback
-    {
+    interface DrawerCallback {
         void closeDrawer();
     }
 
-    interface onCheckBoxListListener{
+    interface onCheckBoxListListener {
         void onConfirm(HashMap<Integer, Integer> checked);
     }
 
