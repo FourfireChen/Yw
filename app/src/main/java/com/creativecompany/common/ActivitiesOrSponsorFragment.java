@@ -1,5 +1,6 @@
 package com.creativecompany.common;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,8 +18,6 @@ import com.creativecompany.data.bean.MyActivity;
 import com.creativecompany.data.bean.Sponsor;
 import com.creativecompany.detail.DetailActivity;
 import com.creativecompany.sponsor.SponsorActivity;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,34 +54,24 @@ public class ActivitiesOrSponsorFragment extends BaseFragment implements Adapter
         View view = inflater.inflate(R.layout.main_home_activity_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        CommonModel commonModel = ViewModelProviders.of(this).get(CommonModel.class);
 
-        String title = null;
+        String title;
         ActivitiesOrSponsorsAdapter activitiesOrSponsorsAdapter = null;
+
+
         switch (type) {
-            case SPONSORS:{
+
+            case SPONSORS:
                 title = "优秀主办方";
-                ArrayList<Sponsor> sponsors = new ArrayList<>();
-                //此处先做假数据
-                sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
-                sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
-                sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
-
-                activitiesOrSponsorsAdapter = new ActivitiesOrSponsorsAdapter<Sponsor> (type, sponsors);
-
+                activitiesOrSponsorsAdapter = new ActivitiesOrSponsorsAdapter<Sponsor>(type, commonModel.getSponsorList(), this);
                 break;
-            }
 
-
-            case ACTIVITIES:{
+            case ACTIVITIES:
                 title = "精彩活动";
-                ArrayList<MyActivity> activities = new ArrayList<>();
-                //此处先做假数据
-                activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
-                activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
-                activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
-                activitiesOrSponsorsAdapter = new ActivitiesOrSponsorsAdapter<MyActivity> (type, activities);
+                activitiesOrSponsorsAdapter = new ActivitiesOrSponsorsAdapter<MyActivity>(type, commonModel.getActivityList(), this);
                 break;
-            }
+
             default:
                 title = "";
                 break;
@@ -93,6 +82,9 @@ public class ActivitiesOrSponsorFragment extends BaseFragment implements Adapter
         homelist.setAdapter(activitiesOrSponsorsAdapter);
 
         homelist.setOnItemClickListener(this);
+
+        commonModel.loadActivities(getActivity());
+        commonModel.loadSponsors(getActivity());
 
         return view;
     }
@@ -105,14 +97,16 @@ public class ActivitiesOrSponsorFragment extends BaseFragment implements Adapter
 
     @OnClick(R.id.home_item_all)
     public void onViewClicked() {
-        Bundle types = new Bundle();
+        /*Bundle types = new Bundle();
         types.putInt(FRAGEMTN_TYPE, type);
-        jumpToAnotherActivity(AllActivity.class, types);
+        jumpToAnotherActivity(AllActivity.class, types);*/
+        ViewModelProviders.of(this).get(CommonModel.class).changeActivity2();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (type){
+
+        switch (type) {
             case SPONSORS:
                 jumpToAnotherActivity(SponsorActivity.class, null);
                 break;
@@ -121,7 +115,6 @@ public class ActivitiesOrSponsorFragment extends BaseFragment implements Adapter
                 break;
         }
 
-        //Toast.makeText(getContext(), "点了活动" + position, Toast.LENGTH_SHORT).show();
     }
 
     private void checkType() {

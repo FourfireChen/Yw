@@ -1,8 +1,11 @@
 package com.creativecompany.common;
 
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,23 +30,26 @@ import static com.creativecompany.util.ID.SPONSORS;
  */
 
 public class ActivitiesOrSponsorsAdapter<T> extends BaseAdapter {
-    private ArrayList<T> mItems;
+    private MutableLiveData<ArrayList<T>> mItems;
     private int type;
+    private Fragment mFragment;
 
-    public ActivitiesOrSponsorsAdapter(int type, @Nullable ArrayList<T> list) {
-        if(list != null)
-            mItems = list;
+
+    ActivitiesOrSponsorsAdapter(int type, MutableLiveData<ArrayList<T>> mutableLiveData, Fragment fragment) {
+        mItems = mutableLiveData;
         this.type = type;
+        this.mFragment = fragment;
+
     }
 
     @Override
     public int getCount() {
-        return mItems == null ? 0 : mItems.size();
+         return mItems.getValue() == null ? 0 : mItems.getValue().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mItems.get(position);
+        return mItems.getValue().get(position);
     }
 
     @Override
@@ -56,40 +62,32 @@ public class ActivitiesOrSponsorsAdapter<T> extends BaseAdapter {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item_activityorsponsor, parent, false);
 
         TextView itemSummary = view.findViewById(R.id.summary_summary);
-        CircleImageView avator1 = view.findViewById(R.id.activityavator);
+        CircleImageView avator = view.findViewById(R.id.activityavator);
         TextView itemTitle = view.findViewById(R.id.summary_title);
 
-        Drawable avator = null;
-        String summary, title;
         Resources resources = parent.getResources();
-
-
-        switch (type){
+        switch (type) {
             case SPONSORS:
-                avator = resources.getDrawable(R.drawable.me_black_36dp, null);
-                title = ((Sponsor)mItems.get(position)).getName();
-                summary = ((Sponsor)mItems.get(position)).getSummary();
+                mItems.observe(mFragment, activityOrSponsor -> {
+                    avator.setImageDrawable(resources.getDrawable(R.drawable.me_black_36dp));
+                    itemSummary.setText(((Sponsor)activityOrSponsor.get(position)).getSummary());
+                    itemTitle.setText((((Sponsor) activityOrSponsor.get(position)).getName()));
+                });
                 break;
             case ACTIVITIES:
-                avator = resources.getDrawable(R.drawable.home_black_36dp, null);
-                title = ((MyActivity)mItems.get(position)).getTitle();
-                summary = ((MyActivity)mItems.get(position)).getSummary();
+                mItems.observe(mFragment, activityOrSponsor -> {
+                    avator.setImageDrawable(resources.getDrawable(R.drawable.home_black_36dp));
+                    itemSummary.setText(((MyActivity)activityOrSponsor.get(position)).getSummary());
+                    itemTitle.setText((((MyActivity) activityOrSponsor.get(position)).getTitle()));
+                });
                 break;
             default:
-                title = "";
-                summary = "";
                 break;
         }
 
-        avator1.setImageDrawable(avator);
-        itemSummary.setText(summary);
-        itemTitle.setText(title);
+
 
         return view;
-    }
-
-    public void setItems(ArrayList<T> items) {
-        this.mItems = items;
     }
 
 }

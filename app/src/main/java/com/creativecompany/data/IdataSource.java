@@ -1,6 +1,11 @@
 package com.creativecompany.data;
 
 import android.content.Context;
+import android.telecom.Call;
+import android.telecom.CallAudioState;
+
+import com.creativecompany.data.bean.MyActivity;
+import com.creativecompany.data.bean.Sponsor;
 
 import java.util.ArrayList;
 
@@ -20,6 +25,10 @@ public interface IdataSource {
     void verifyMesCode(String phonenumber, String code, Callback callback);
 
     void getLocationInfo(Context context, Callback<String> callback);
+
+    void getActivity(Context context, Callback<ArrayList<MyActivity>> callback);
+
+    void getSponsor(Context context, Callback<ArrayList<Sponsor>> callback);
 
     interface Callback<T> {
         void onSuccess(T back);

@@ -3,7 +3,6 @@ package com.creativecompany.data.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.avos.avoscloud.AVUser;
 import com.creativecompany.data.bean.User;
 
 import org.json.JSONArray;

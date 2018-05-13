@@ -1,6 +1,7 @@
 package com.creativecompany.data;
 
 import android.content.Context;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
@@ -10,13 +11,15 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVMobilePhoneVerifyCallback;
 import com.avos.avoscloud.AVSMS;
 import com.avos.avoscloud.AVSMSOption;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.RequestMobileCodeCallback;
+import com.creativecompany.data.bean.MyActivity;
+import com.creativecompany.data.bean.Sponsor;
 import com.creativecompany.data.bean.User;
 import com.creativecompany.data.local.IlocalModel;
 import com.creativecompany.data.local.LocalModel;
 import com.creativecompany.data.net.InetModel;
 import com.creativecompany.data.net.NetModel;
+
 import java.util.ArrayList;
 
 /**
@@ -159,6 +162,24 @@ public class DataRepository implements IdataSource {
                 callback.onFail(e);
             }
         });
+    }
+
+    @Override
+    public void getActivity(Context context, Callback<ArrayList<MyActivity>> callback) {
+        ArrayList<MyActivity> activities = new ArrayList<>();
+        activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
+        activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
+        activities.add(new MyActivity("东湖义工", "玩一天", "就今天", "玩玩玩", null, "111"));
+        callback.onSuccess(activities);
+    }
+
+    @Override
+    public void getSponsor(Context context, Callback<ArrayList<Sponsor>> callback) {
+        ArrayList<Sponsor> sponsors = new ArrayList<>();
+        sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
+        sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
+        sponsors.add(new Sponsor("大软院", "优秀啊", null, 2000, null));
+        callback.onSuccess(sponsors);
     }
 
 

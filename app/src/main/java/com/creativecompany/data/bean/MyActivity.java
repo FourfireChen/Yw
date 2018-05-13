@@ -1,12 +1,14 @@
 package com.creativecompany.data.bean;
 
+import com.avos.avoscloud.AVObject;
+
 /**
  * Created by 陈钊燚 on 2018/5/2.
  * QQ 1215638092
  * Github FourfireChen
  */
 
-public class MyActivity {
+public class MyActivity extends AVObject {
     private String title, summary, time, content, id;
     private byte[] avator;
 

@@ -1,5 +1,7 @@
 package com.creativecompany.data.bean;
 
+import com.avos.avoscloud.AVObject;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,7 @@ import java.util.List;
  * Github FourfireChen
  */
 
-public class Sponsor {
+public class Sponsor extends AVObject{
     private String name, summary;
     private List<MyActivity> mMyActivityList;
     private int fans;

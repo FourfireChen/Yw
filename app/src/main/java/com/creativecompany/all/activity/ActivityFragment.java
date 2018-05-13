@@ -1,8 +1,5 @@
 package com.creativecompany.all.activity;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,11 +16,9 @@ import android.widget.Button;
 
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
-
 import com.creativecompany.data.bean.MyActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,7 +55,7 @@ public class ActivityFragment extends BaseFragment implements DrawerFragemnt.Dra
 
         ActivityModel activityModel = ViewModelProviders.of(this).get(ActivityModel.class);
 
-        activityModel.getActivities().observe(this, mActivities->{
+        activityModel.getActivities().observe(this, mActivities -> {
             mActivitiesListAdapter.setActivities((ArrayList<MyActivity>) mActivities);
         });
 
@@ -71,7 +66,7 @@ public class ActivityFragment extends BaseFragment implements DrawerFragemnt.Dra
         return view;
     }
 
-    private void init(){
+    private void init() {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         DrawerFragemnt drawerFragemnt = new DrawerFragemnt();
