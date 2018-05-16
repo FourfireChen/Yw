@@ -51,7 +51,7 @@ public class HomeHeaderFragment extends Fragment {
             mainHomeHeaderImage.setImageResource(res.get(fragmentid));
         });
 
-        homeModel.loadHeaderPosts();
+        homeModel.loadHeaderPosts(this.getActivity());
 
         return view;
     }

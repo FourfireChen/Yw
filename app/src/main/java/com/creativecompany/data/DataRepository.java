@@ -182,5 +182,10 @@ public class DataRepository implements IdataSource {
         callback.onSuccess(sponsors);
     }
 
+    @Override
+    public void getHomeHeaderPost(Context context, Callback<ArrayList<Integer>> callback) {
+        callback.onFail(new Exception(""));
+    }
+
 
 }

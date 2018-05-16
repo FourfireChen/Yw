@@ -1,6 +1,5 @@
 package com.creativecompany.me;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -43,6 +42,14 @@ public class MeFragment extends BaseFragment implements ImeView {
     TextView mMeWorkHours;
     @BindView(R.id.me_ranking)
     TextView mMeRanking;
+    @BindView(R.id.my_follow)
+    Button mMyFollow;
+    @BindView(R.id.my_acticities)
+    Button mMyActicities;
+    @BindView(R.id.my_history)
+    Button mMyHistory;
+    @BindView(R.id.messages)
+    Button mMessages;
     private MeModel mMeModel;
 
     @Nullable
@@ -53,8 +60,7 @@ public class MeFragment extends BaseFragment implements ImeView {
 
         mMeModel = ViewModelProviders.of(this).get(MeModel.class);
 
-        mMeModel.getUserLiveData().observe(this, user -> mMeUsername.setText(user.getUsername())
-        );
+        mMeModel.getUserLiveData().observe(this, user -> mMeUsername.setText(user.getUsername()));
 
         return view;
     }
@@ -97,4 +103,21 @@ public class MeFragment extends BaseFragment implements ImeView {
         getActivity().finish();
     }
 
+    @OnClick({R.id.my_follow, R.id.my_acticities, R.id.my_history, R.id.messages})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.my_follow:
+
+                break;
+            case R.id.my_acticities:
+
+                break;
+            case R.id.my_history:
+
+                break;
+            case R.id.messages:
+
+                break;
+        }
+    }
 }

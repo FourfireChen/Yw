@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#e8e8e8"
+    android:background="#e0effb"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/me_header"/>
@@ -13,27 +13,20 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:background="#fff"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="60dp">
-                <Button
-                    android:background="@drawable/textview_shape"
-                    android:text="我的关注"
-                    android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-                <Button
-                    android:background="@drawable/textview_shape"
-                    android:text="我的收藏"
-                    android:textSize="20dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
+
             <Button
+                android:id="@+id/my_follow"
+                android:layout_marginTop="10dp"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:textSize="18dp"
+                android:text="我的关注"
+                android:background="@drawable/textview_shape"
+                android:layout_width="match_parent"
+                android:layout_height="55dp" />
+
+            <Button
+                android:id="@+id/my_acticities"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="left|center"
@@ -44,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
             <Button
+                android:id="@+id/my_history"
                 android:layout_marginVertical="5dp"
                 android:text="我的行程"
                 android:paddingLeft="10dp"
@@ -53,8 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
             <Button
+                android:id="@+id/messages"
                 android:layout_marginVertical="5dp"
-                android:text="我的秀"
+                android:text="我的消息"
                 android:paddingLeft="10dp"
                 android:textSize="18dp"
                 android:gravity="left|center"

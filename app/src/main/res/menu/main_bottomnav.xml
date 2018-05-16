@@ -3,6 +3,9 @@
     <item android:id="@+id/nav_home"
         android:title="首页"
         android:icon="@drawable/home_black_36dp"/>
+    <item android:id="@+id/nav_message"
+        android:title="消息"
+        android:icon="@drawable/ic_chat_black_36dp"/>
     <item android:id="@+id/nav_me"
         android:title="我的"
         android:icon="@drawable/me_black_36dp"/>

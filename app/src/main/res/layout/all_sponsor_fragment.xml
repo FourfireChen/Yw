@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cab9e3ff"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center|start"
+                android:background="@drawable/textview_shape"
+                android:text="优秀主办方"
+                android:textSize="25dp" />
 
+            <ImageView
+                android:layout_margin="3dp"
+                android:src="@drawable/home_header_2"
+                android:scaleType="centerCrop"
+                android:id="@+id/all_sponsor_good_sponsors"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:background="@drawable/textview_shape"
+
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center|start"
+                android:text="全部组织"
+                android:textSize="25dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/all_sponsors_list"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

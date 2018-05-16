@@ -30,6 +30,8 @@ public interface IdataSource {
 
     void getSponsor(Context context, Callback<ArrayList<Sponsor>> callback);
 
+    void getHomeHeaderPost(Context context, Callback<ArrayList<Integer>> callback);
+
     interface Callback<T> {
         void onSuccess(T back);
 
