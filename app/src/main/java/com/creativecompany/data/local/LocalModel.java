@@ -3,7 +3,7 @@ package com.creativecompany.data.local;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,15 +78,15 @@ public class LocalModel implements IlocalModel {
     }
 
     @Override
-    public void saveUser(User user) {
+    public void saveUser(Participant participant) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(USERNAME, user.getUsername());
-        editor.putString(OBJECTID, user.getObjectId());
-        editor.putString(PHONENUMBER, user.getMobilePhoneNumber());
-        editor.putString(EMAIL, user.getEmail());
-        editor.putString(POSITION, user.getPosition());
-        editor.putString(GENDER, user.getGender());
-        editor.putInt(AGE, user.getAge());
+        editor.putString(USERNAME, participant.getUsername());
+        editor.putString(OBJECTID, participant.getObjectId());
+        editor.putString(PHONENUMBER, participant.getMobilePhoneNumber());
+        editor.putString(EMAIL, participant.getEmail());
+        editor.putString(POSITION, participant.getPosition());
+        editor.putString(GENDER, participant.getGender());
+        editor.putInt(AGE, participant.getAge());
         editor.apply();
     }
 

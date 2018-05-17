@@ -2,14 +2,20 @@ package com.creativecompany.data.bean;
 
 import com.avos.avoscloud.AVUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 陈钊燚 on 2018/5/11.
  * QQ 1215638092
  * Github FourfireChen
  */
-public class User extends AVUser {
+public class Participant extends AVUser {
     String position, gender;
     int age, workHours, ranking;
+    ArrayList<Sponsor> mFollows;
+    ArrayList<MyActivity> mJoinActivities;
+
 
 
     public int getWorkHours() {

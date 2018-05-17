@@ -1,10 +1,7 @@
 package com.creativecompany.common;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,10 +56,10 @@ public class ActivitiesOrSponsorsAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item_activityorsponsor, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item, parent, false);
 
         TextView itemSummary = view.findViewById(R.id.summary_summary);
-        CircleImageView avator = view.findViewById(R.id.activityavator);
+        CircleImageView avator = view.findViewById(R.id.summary_avator);
         TextView itemTitle = view.findViewById(R.id.summary_title);
 
         Resources resources = parent.getResources();

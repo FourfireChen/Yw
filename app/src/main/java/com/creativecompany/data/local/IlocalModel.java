@@ -2,9 +2,8 @@ package com.creativecompany.data.local;
 
 import android.content.Context;
 
-import com.avos.avoscloud.AVUser;
 import com.creativecompany.data.BaseModel;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 
 import java.util.ArrayList;
 
@@ -17,7 +16,7 @@ public interface IlocalModel extends BaseModel {
 
     boolean openDatabase(Context context);
 
-    void saveUser(User user);
+    void saveUser(Participant participant);
 
     void clearData();
 

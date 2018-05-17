@@ -46,6 +46,14 @@
                     android:gravity="center"
                     android:layout_width="80dp"
                     android:layout_height="50dp" />
+                <ToggleButton
+                    android:id="@+id/is_favorite"
+                    android:layout_gravity="end"
+                    android:background="@drawable/favorite"
+                    android:textOff=" "
+                    android:textOn=" "
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
             </FrameLayout>
             <TextView
                 android:id="@+id/detail_name"

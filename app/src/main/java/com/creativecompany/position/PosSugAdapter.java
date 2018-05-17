@@ -39,7 +39,7 @@ public class PosSugAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_localtionsuggestion_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_textview, parent, false);
         TextView textView = view.findViewById(R.id.suggestion);
         textView.setText(suggestionCitys.get(position));
         textView.setOnClickListener(new View.OnClickListener() {

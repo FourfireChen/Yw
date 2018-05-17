@@ -13,8 +13,8 @@ import com.avos.avoscloud.AVSMS;
 import com.avos.avoscloud.AVSMSOption;
 import com.avos.avoscloud.RequestMobileCodeCallback;
 import com.creativecompany.data.bean.MyActivity;
+import com.creativecompany.data.bean.Participant;
 import com.creativecompany.data.bean.Sponsor;
-import com.creativecompany.data.bean.User;
 import com.creativecompany.data.local.IlocalModel;
 import com.creativecompany.data.local.LocalModel;
 import com.creativecompany.data.net.InetModel;
@@ -50,9 +50,9 @@ public class DataRepository implements IdataSource {
     @Override
     public boolean login(final Context context, String username, String password, final Callback callback) {
         try {
-            netData.login(username, password, new Callback<User>() {
+            netData.login(username, password, new Callback<Participant>() {
                 @Override
-                public void onSuccess(User back) {
+                public void onSuccess(Participant back) {
                     localData.openDatabase(context);
                     localData.saveUser(back);
                     callback.onSuccess(null);
@@ -72,13 +72,13 @@ public class DataRepository implements IdataSource {
 
     @Override
     public boolean register(final Context context, String phonenumber, String password, final Callback callback) {
-        final User user = new User();
-        user.setUsername(phonenumber);
-        user.setMobilePhoneNumber(phonenumber);
-        user.setPassword(password);
-        netData.register(user, new Callback<User>() {
+        final Participant participant = new Participant();
+        participant.setUsername(phonenumber);
+        participant.setMobilePhoneNumber(phonenumber);
+        participant.setPassword(password);
+        netData.register(participant, new Callback<Participant>() {
             @Override
-            public void onSuccess(User back) {
+            public void onSuccess(Participant back) {
                 localData.openDatabase(context);
                 localData.saveUser(back);
                 callback.onSuccess(null);

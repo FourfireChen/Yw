@@ -11,7 +11,7 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.creativecompany.data.IdataSource;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 
 /**
  * Created by 45089 on 2018/4/5.
@@ -26,26 +26,26 @@ public class NetModel implements InetModel {
     }
 
     @Override
-    public void login(String username, String password, final IdataSource.Callback<User> callback) throws AVException {
-        AVUser.logInInBackground(username, password, new LogInCallback<User>() {
+    public void login(String username, String password, final IdataSource.Callback<Participant> callback) throws AVException {
+        AVUser.logInInBackground(username, password, new LogInCallback<Participant>() {
             @Override
-            public void done(User avUser, AVException e) {
+            public void done(Participant avParticipant, AVException e) {
                 if (e == null) {
-                    callback.onSuccess(avUser);
+                    callback.onSuccess(avParticipant);
                 } else {
                     callback.onFail(e);
                 }
             }
-        }, User.class);
+        }, Participant.class);
     }
 
     @Override
-    public void register(User user, final IdataSource.Callback<User> callback) {
-        user.signUpInBackground(new SignUpCallback() {
+    public void register(Participant participant, final IdataSource.Callback<Participant> callback) {
+        participant.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(AVException e) {
                 if (e == null) {
-                    callback.onSuccess(user);
+                    callback.onSuccess(participant);
                 } else {
                     callback.onFail(e);
                 }

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:jp="http://schemas.android.com/apk/res-auto"
-    android:clipChildren="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
@@ -28,6 +26,7 @@
             android:layout_height="40dp" />
     </android.support.v7.widget.Toolbar>
     <android.support.v4.view.ViewPager
+        android:background="#a2bae5"
         android:layout_below="@id/main_toolbar"
         android:layout_above="@id/main_nav"
         android:id="@+id/main_viewpager"

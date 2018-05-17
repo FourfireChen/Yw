@@ -47,16 +47,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
             <Button
-                android:id="@+id/messages"
-                android:layout_marginVertical="5dp"
-                android:text="我的消息"
-                android:paddingLeft="10dp"
-                android:textSize="18dp"
-                android:gravity="left|center"
-                android:background="@drawable/textview_shape"
-                android:layout_width="match_parent"
-                android:layout_height="55dp" />
-            <Button
                 android:id="@+id/logout"
                 android:text="退出登录"
                 android:textSize="20dp"

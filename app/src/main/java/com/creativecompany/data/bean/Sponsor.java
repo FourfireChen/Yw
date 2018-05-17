@@ -2,6 +2,7 @@ package com.creativecompany.data.bean;
 
 import com.avos.avoscloud.AVObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,14 +13,14 @@ import java.util.List;
 
 public class Sponsor extends AVObject{
     private String name, summary;
-    private List<MyActivity> mMyActivityList;
+    private ArrayList<MyActivity> mMyActivityList;
     private int fans;
     private byte[] background;
 
     public Sponsor() {
     }
 
-    public Sponsor(String name, String summary, List<MyActivity> myActivityList, int fans, byte[] background) {
+    public Sponsor(String name, String summary, ArrayList<MyActivity> myActivityList, int fans, byte[] background) {
         this.name = name;
         this.summary = summary;
         mMyActivityList = myActivityList;
@@ -63,7 +64,7 @@ public class Sponsor extends AVObject{
         return mMyActivityList;
     }
 
-    public void setMyActivityList(List<MyActivity> myActivityList) {
+    public void setMyActivityList(ArrayList<MyActivity> myActivityList) {
         mMyActivityList = myActivityList;
     }
 }

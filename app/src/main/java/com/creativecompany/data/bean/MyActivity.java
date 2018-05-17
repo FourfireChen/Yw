@@ -2,6 +2,9 @@ package com.creativecompany.data.bean;
 
 import com.avos.avoscloud.AVObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 陈钊燚 on 2018/5/2.
  * QQ 1215638092
@@ -11,6 +14,9 @@ import com.avos.avoscloud.AVObject;
 public class MyActivity extends AVObject {
     private String title, summary, time, content, id;
     private byte[] avator;
+    private ArrayList<Participant> participants;
+    private ArrayList<Message> mMessages;
+
 
     public MyActivity(String title, String summary, String time, String content, byte[] avator, String id) {
         this.title = title;
@@ -70,5 +76,13 @@ public class MyActivity extends AVObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(ArrayList<Participant> participants) {
+        this.participants = participants;
     }
 }

@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="系统通知"
-        android:textSize="18dp"
-        android:paddingStart="5dp"
-        android:gravity="center|start"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="系统通知"
+                android:textSize="18dp"
+                android:paddingStart="5dp"
+                android:gravity="center|start"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <include layout="@layout/summary_item"/>
+            <TextView
+                android:text="志愿者群"
+                android:textSize="18dp"
+                android:paddingStart="5dp"
+                android:gravity="center|start"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/group_messages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

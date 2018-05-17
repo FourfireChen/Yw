@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.creativecompany.BaseActivity;
 import com.creativecompany.R;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 import com.creativecompany.position.PositionContract.IpositionPresenter;
 import com.creativecompany.position.PositionContract.IpositionView;
 
@@ -129,7 +129,7 @@ public class PositionActivity extends BaseActivity<IpositionPresenter> implement
         if (localtionCity.getText().toString().equals("定位失败")) {
             ipositionPresenter.location(getApplicationContext());
         } else {
-            User.getCurrentUser(User.class).setPosition(localtionCity.getText().toString());
+            Participant.getCurrentUser(Participant.class).setPosition(localtionCity.getText().toString());
             finish();
         }
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.creativecompany.BaseActivity;
 import com.creativecompany.R;
@@ -43,6 +44,18 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
     TextView mDetailContent;
     @BindView(R.id.joinin)
     Button mJoinin;
+    @BindView(R.id.is_favorite)
+    ToggleButton mIsFavorite;
+    @BindView(R.id.detail_participant_avator1)
+    CircleImageView mDetailParticipantAvator1;
+    @BindView(R.id.detail_participant_avator2)
+    CircleImageView mDetailParticipantAvator2;
+    @BindView(R.id.detail_participant_avator3)
+    CircleImageView mDetailParticipantAvator3;
+    @BindView(R.id.detail_participant_avator4)
+    CircleImageView mDetailParticipantAvator4;
+    @BindView(R.id.detail_participant_avator5)
+    CircleImageView mDetailParticipantAvator5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +65,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
         init();
     }
 
-    private void init(){
+    private void init() {
         setSupportActionBar(mDetailToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -77,4 +90,5 @@ public class DetailActivity extends BaseActivity implements DetailContract.Detai
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

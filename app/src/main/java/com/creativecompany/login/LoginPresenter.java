@@ -31,6 +31,7 @@ public class LoginPresenter extends BasePresenter<IloginView> implements IloginP
         idataSource.login(context, username, password, new IdataSource.Callback() {
             @Override
             public void onSuccess(Object back) {
+                loginView.jumpToAnotherActivity(MainActivity.class, null);
                 loginView.selfFinish();
             }
 

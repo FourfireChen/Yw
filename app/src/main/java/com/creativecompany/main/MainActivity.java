@@ -14,6 +14,7 @@ import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.creativecompany.R;
 import com.creativecompany.home.HomeFragment;
 import com.creativecompany.me.MeFragment;
+import com.creativecompany.mes.MessageFragment;
 import com.creativecompany.util.ActivityCyclerListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -51,13 +52,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLifeCyclerListener = new ActivityCyclerListener(this, getLifecycle());
         getLifecycle().addObserver(mLifeCyclerListener);
         HomeFragment homeFragment = new HomeFragment();
+        MessageFragment messageFragment = new MessageFragment();
         MeFragment meFragment = new MeFragment();
         ArrayList<Fragment> mainFragments = new ArrayList<>();
         mainFragments.add(homeFragment);
+        mainFragments.add(messageFragment);
         mainFragments.add(meFragment);
         viewPagerAdapter = new MainFragmentAdapter(getSupportFragmentManager(), mainFragments);
         mainViewpager.setAdapter(viewPagerAdapter);
         mainViewpager.setPageTransformer(true, new RotateUpTransformer());
+        mainViewpager.setOffscreenPageLimit(3);
         mainNav.setupWithViewPager(mainViewpager);
         mainToolbarSearch.setOnClickListener(this);
     }

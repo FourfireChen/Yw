@@ -39,7 +39,7 @@ public class PosHotCitysAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_localtionhotcitys_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_button, parent, false);
         Button item = view.findViewById(R.id.hot_city_item);
         item.setText(citys.get(position));
         item.setOnClickListener(new View.OnClickListener() {

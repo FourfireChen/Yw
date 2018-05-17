@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVUser;
 import com.creativecompany.BaseFragment;
 import com.creativecompany.R;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 import com.creativecompany.login.LoginActivity;
 import com.creativecompany.me.MeContract.ImeView;
 
@@ -48,8 +48,6 @@ public class MeFragment extends BaseFragment implements ImeView {
     Button mMyActicities;
     @BindView(R.id.my_history)
     Button mMyHistory;
-    @BindView(R.id.messages)
-    Button mMessages;
     private MeModel mMeModel;
 
     @Nullable
@@ -84,8 +82,8 @@ public class MeFragment extends BaseFragment implements ImeView {
 
     @OnClick(R.id.logout)
     public void onViewClicked() {
-        User currentUser = User.getCurrentUser(User.class);
-        if (currentUser != null) {
+        Participant currentParticipant = Participant.getCurrentUser(Participant.class);
+        if (currentParticipant != null) {
             AVUser.logOut();
         }
         jumpToAnotherActivity(LoginActivity.class, null);
@@ -103,7 +101,7 @@ public class MeFragment extends BaseFragment implements ImeView {
         getActivity().finish();
     }
 
-    @OnClick({R.id.my_follow, R.id.my_acticities, R.id.my_history, R.id.messages})
+    @OnClick({R.id.my_follow, R.id.my_acticities, R.id.my_history})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.my_follow:
@@ -113,9 +111,6 @@ public class MeFragment extends BaseFragment implements ImeView {
 
                 break;
             case R.id.my_history:
-
-                break;
-            case R.id.messages:
 
                 break;
         }

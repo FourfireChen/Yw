@@ -28,7 +28,7 @@ public class SponsorListAdapter extends RecyclerView.Adapter<SponsorListAdapter.
 
     @Override
     public SponsorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_sponsor_listitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item, parent, false);
         SponsorViewHolder sponsorViewHolder = new SponsorViewHolder(view);
         return sponsorViewHolder;
     }
@@ -60,9 +60,9 @@ public class SponsorListAdapter extends RecyclerView.Adapter<SponsorListAdapter.
 
         public SponsorViewHolder(View itemView) {
             super(itemView);
-            sponsorAvator = itemView.findViewById(R.id.sponsorlist_item_avator);
-            sponsorName = itemView.findViewById(R.id.sponsorlist_item_name);
-            sponsorSummary = itemView.findViewById(R.id.sponsorlist_item_summary);
+            sponsorAvator = itemView.findViewById(R.id.summary_avator);
+            sponsorName = itemView.findViewById(R.id.summary_title);
+            sponsorSummary = itemView.findViewById(R.id.summary_summary);
 
         }
     }

@@ -4,10 +4,9 @@ import android.content.Context;
 
 import com.amap.api.location.AMapLocation;
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
 import com.creativecompany.data.BaseModel;
 import com.creativecompany.data.IdataSource;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 
 /**
  * Created by 45089 on 2018/4/5.
@@ -15,9 +14,9 @@ import com.creativecompany.data.bean.User;
 
 public interface InetModel extends BaseModel {
 
-    void login(String username, String password, IdataSource.Callback<User> callback) throws AVException;
+    void login(String username, String password, IdataSource.Callback<Participant> callback) throws AVException;
 
-    void register(User user, IdataSource.Callback<User> callback);
+    void register(Participant participant, IdataSource.Callback<Participant> callback);
 
     void getCurrentPosition(Context applicationContext, IdataSource.Callback<AMapLocation> callback);
 }

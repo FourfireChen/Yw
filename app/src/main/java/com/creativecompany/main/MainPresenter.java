@@ -2,7 +2,7 @@ package com.creativecompany.main;
 
 import com.creativecompany.BasePresenter;
 import com.creativecompany.data.IdataSource;
-import com.creativecompany.data.bean.User;
+import com.creativecompany.data.bean.Participant;
 import com.creativecompany.login.LoginActivity;
 import com.creativecompany.main.MainContract.ImainPresenter;
 import com.creativecompany.main.MainContract.ImainView;
@@ -23,8 +23,8 @@ public class MainPresenter extends BasePresenter<ImainView> implements ImainPres
 
     @Override
     public void initUser() {
-        User user = User.getCurrentUser(User.class);
-        if (user == null) {
+        Participant participant = Participant.getCurrentUser(Participant.class);
+        if (participant == null) {
             imainView.jumpToAnotherActivity(LoginActivity.class, null);
         }
     }

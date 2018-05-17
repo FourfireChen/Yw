@@ -6,12 +6,12 @@
     android:layout_height="90dp">
     <de.hdodenhof.circleimageview.CircleImageView
         android:src="@drawable/me_black_36dp"
-        android:id="@+id/activityavator"
+        android:id="@+id/summary_avator"
         android:layout_width="70dp"
         android:layout_height="70dp" />
     <TextView
         android:id="@+id/summary_title"
-        android:layout_toEndOf="@id/activityavator"
+        android:layout_toEndOf="@id/summary_avator"
         android:text="title"
         android:textSize="18dp"
         android:paddingStart="15dp"
@@ -20,7 +20,7 @@
     <TextView
         android:id="@+id/summary_summary"
         android:textSize="15dp"
-        android:layout_toEndOf="@id/activityavator"
+        android:layout_toEndOf="@id/summary_avator"
         android:layout_below="@id/summary_title"
         android:text="summary"
         android:layout_gravity="start"
